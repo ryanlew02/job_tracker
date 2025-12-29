@@ -1,0 +1,24 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local DB (if you use SQLite later)
+*.sqlite3
+*.db
+
+# Logs
+*.log
