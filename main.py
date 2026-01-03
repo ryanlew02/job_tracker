@@ -2,7 +2,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 
-app = FastAPI() #uvicorn main:app --reload --reload-exclude ".venv/*"
+app = FastAPI() #python -m uvicorn main:app --reload --reload-exclude .venv
+
 
 items = []
 
@@ -34,6 +35,17 @@ async def get_item(item_id: int):
         raise HTTPException(status_code=404, detail=f"Item {item_id} not found")
     item = items[item_id]
     return item
+
+
+class User(BaseModel):
+    username: str
+    password: str
+    email: str
+
+user = User(username="john_doe", password="securepassword", email="john@example.com")
+user_json = user.model_dump_json()
+print(user_json)
+
 
 
 
